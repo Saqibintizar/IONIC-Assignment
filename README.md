@@ -1,3 +1,5 @@
+(HTML FILE)
+
 <!--
   Generated template for the LoginPage page.
 
@@ -41,3 +43,50 @@
   </div> 
 
 </ion-content>
+
+
+
+(TS FILE)
+
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+
+/**
+ * Generated class for the LoginPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
+@Component({
+  selector: 'page-login',
+  templateUrl: 'login.html',
+})
+export class LoginPage {
+
+  username : string;
+  password : string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  }
+
+  login(){
+    if(this.username == "noman" && this.password =="noman123"){
+      const alert = this.alertCtrl.create({
+        title: 'Success!',
+        subTitle: 'Successfully logged In',
+        buttons: ['OK']
+      });
+      alert.present();
+    }else{
+      const alert = this.alertCtrl.create({
+        title: 'Error!',
+        subTitle: 'Incorrent Username or Password',
+        buttons: ['OK']
+      });
+      alert.present();
+    }
+  }
+}
+
